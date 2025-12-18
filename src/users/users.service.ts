@@ -34,4 +34,9 @@ export class UsersService {
     await this.usersRepository.update(id, updateUserDto);
     return this.findOne(id);
   }
+
+  async remove(id: number): Promise<void> {
+    const user = await this.findOne(id);
+    await this.usersRepository.remove(user);
+  }
 }
